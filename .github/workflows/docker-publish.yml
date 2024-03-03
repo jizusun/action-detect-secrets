@@ -123,13 +123,6 @@ jobs:
           echo "${{ steps.meta.outputs.tags}}"
           echo "${{ steps.meta.outputs.labels}}"
 
-      - name: Comment PR with execution number
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          message: |
-            _(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)_
-          comment_tag: execution    
-
       - name: Docker tags as a PR comment
         uses: jizusun/docker-tags-pr-comment-action/composite@main
         if: github.event_name == 'pull_request'
