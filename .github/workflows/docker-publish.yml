@@ -132,5 +132,6 @@ jobs:
 
       - name: Docker tags as a PR comment
         uses: jizusun/docker-tags-pr-comment-action/composite@main
+        if: github.event_name == 'pull_request'
         with:
           docker-tags: ${{ steps.meta.outputs.tags }}
