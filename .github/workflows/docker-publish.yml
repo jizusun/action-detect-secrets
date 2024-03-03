@@ -24,12 +24,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
-      id-token: write
+    # permissions:
+    #   contents: read
+    #   packages: write
+    #   # This is used to complete the identity challenge
+    #   # with sigstore/fulcio when running outside of PRs.
+    #   id-token: write
 
     steps:
       - name: Checkout repository
@@ -115,6 +115,13 @@ jobs:
           echo "${{ steps.meta.outputs.version }}"
           echo "${{ steps.meta.outputs.tags}}"
           echo "${{ steps.meta.outputs.labels}}"
+
+      - name: Comment PR with execution number
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            _(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)_
+          comment_tag: execution    
 
       - name: PR comment with reactions
         uses: thollander/actions-comment-pull-request@v2
