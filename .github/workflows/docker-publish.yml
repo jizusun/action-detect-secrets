@@ -134,7 +134,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            # :wave: Docker image is pushed
-            ${{ join(steps.meta.outputs.tags, '\n- `{}`') }}
+            # :wave: Docker images are pushed successfully
+            ${{ join(steps.meta.outputs.tags, '`{}`') }}
           reactions: eyes, rocket
           comment_tag: docker
