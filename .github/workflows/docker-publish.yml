@@ -130,12 +130,7 @@ jobs:
             _(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)_
           comment_tag: execution    
 
-      - name: PR comment with reactions
-        uses: thollander/actions-comment-pull-request@v2
+      - name: Docker tags as a PR comment
+        uses: jizusun/docker-tags-pr-comment-action/composite@main
         with:
-          message: |
-            # :wave: Docker images are pushed successfully
-            ${{ steps.meta.outputs.tags }}
-            
-          reactions: eyes, rocket
-          comment_tag: docker
+          docker-tags: ${{ steps.meta.outputs.tags }}
