@@ -135,7 +135,7 @@ jobs:
         with:
           message: |
             # :wave: Docker images are pushed successfully
-            ${{ fromJson(steps.meta.outputs.json) }}
+            ${{ toJson(steps.meta.outputs.json) }}
             
           reactions: eyes, rocket
           comment_tag: docker
