@@ -135,6 +135,6 @@ jobs:
         with:
           message: |
             # :wave: Docker image is pushed
-            steps.meta.outputs.tags.*.format('- `{}`'))
+            ${{ join(steps.meta.outputs.tags, '\n- `{}`') }}
           reactions: eyes, rocket
           comment_tag: docker
