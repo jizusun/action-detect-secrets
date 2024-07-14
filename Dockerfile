@@ -1,6 +1,6 @@
 FROM python:3.11.4-alpine
 
-ENV REVIEWDOG_VERSION=v0.17.0
+ENV REVIEWDOG_VERSION=v0.20.1
 
 
 # RUN apk add --no-cache gcc musl-dev \
